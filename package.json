@@ -1,0 +1,19 @@
+{
+  "name": "seo-lint-cli",
+  "version": "0.1.5",
+  "description": "Developer-friendly SEO linting tool.",
+  "type": "module",
+  "bin": {
+    "seo-lint": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cheerio": "^1.1.2",
+    "commander": "^11.1.0"
+  }
+}
