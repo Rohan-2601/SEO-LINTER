@@ -2,6 +2,18 @@
   "name": "seo-lint-cli",
   "version": "0.1.5",
   "description": "Developer-friendly SEO linting tool.",
+  "keywords": [
+    "seo",
+    "lint",
+    "cli",
+    "static-site",
+    "optimization"
+  ],
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "type": "module",
   "bin": {
     "seo-lint": "bin/cli.js"
