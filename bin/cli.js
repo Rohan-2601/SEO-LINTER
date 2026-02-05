@@ -32,21 +32,7 @@ if (options.urls) {
 if (options.url) {
   const result = await runUrlScan(options.url);
   
-  if (!result.violations || result.violations.length === 0) {
-    reportResults([{
-      file: options.url,
-      violations: [
-        {
-          message:
-            "No standard SEO tags found\n" +
-            "   → This page may be returning an error, JSON, or client-side only content.\n" +
-            "   → Check if the route is working or if it depends on runtime data."
-        }
-      ]
-    }], []);
-  } else {
-    reportResults([result], []);
-  }
+  reportResults([result], []);
 }
 
 // Folder mode

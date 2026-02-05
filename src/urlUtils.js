@@ -5,6 +5,9 @@ import metaRule from "./rules/metaDescription.rule.js";
 import h1Rule from "./rules/h1.rule.js";
 import canonicalRule from "./rules/canonical.rule.js";
 import ogRule from "./rules/openGraph.rule.js";
+import keywordsRule from "./rules/metaKeywords.rule.js";
+import authorRule from "./rules/metaAuthor.rule.js";
+import imgAltRule from "./rules/imgAlt.rule.js";
 
 export function runRulesOnHtml(html, identifier) {
   const $ = cheerio.load(html);
@@ -15,16 +18,47 @@ export function runRulesOnHtml(html, identifier) {
     metaRule,
     h1Rule,
     canonicalRule,
-    ogRule
+    ogRule,
+    keywordsRule,
+    authorRule,
+    imgAltRule
   ];
 
  
+  const passedRules = [];
+
   for (const rule of rules) {
     const result = rule.check($);
-    if (result) violations.push(result);
+    if (result) {
+      violations.push(result);
+    } else {
+      passedRules.push(rule.id);
+    }
   }
 
- 
+  // Scoring Logic
+  let score = 100;
+  const deductions = {
+    "missing-title": 20,
+    "missing-h1": 20,
+    "missing-meta-description": 20,
+    "missing-canonical": 10,
+    "missing-open-graph": 10,
+    "missing-meta-keywords": 5,
+    "missing-meta-author": 5,
+    "missing-img-alt": 5,
+    "multiple-h1": 5
+    // Default for others (length warnings)
+  };
+
+  violations.forEach(v => {
+    const deduct = deductions[v.rule] || 5; // Default 5 points for warnings not listed
+    score -= deduct;
+  });
+
+  if (score < 0) score = 0;
+
+  // Check if page is empty effectively
   const hasAnySeoTag =
     $("title").length ||
     $('meta[name="description"]').length ||
@@ -41,8 +75,22 @@ export function runRulesOnHtml(html, identifier) {
     });
   }
 
+  const meta = {
+    title: $("title").text().trim(),
+    description: $('meta[name="description"]').attr("content"),
+    h1: $("h1").first().text().trim(),
+    h2Count: $("h2").length,
+    ogTitle: $('meta[property="og:title"]').attr("content"),
+    ogDescription: $('meta[property="og:description"]').attr("content"),
+    keywords: $('meta[name="keywords"]').attr("content"),
+    author: $('meta[name="author"]').attr("content")
+  };
+
   return {
     file: identifier,
-    violations
+    violations,
+    passedRules,
+    score,
+    meta
   };
 }

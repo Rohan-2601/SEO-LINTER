@@ -31,22 +31,9 @@ export async function runMultipleUrlScan(filePath) {
   for (const url of urls) {
     console.log(`\n🔍 Checking: ${url}`);
     const result = await runUrlScan(url);
-    if (!result.violations || result.violations.length === 0) {
-      results.push({
-        file: url,
-        violations: [
-          {
-            message:
-              "No standard SEO tags found\n" +
-              "   → This page may be returning an error, JSON, or client-side only content.\n" +
-              "   → Check if the route is working or if it depends on runtime data."
-          }
-        ]
-      });
-    } else {
-      results.push(result);
-    }
+    results.push(result);
   }
+
 
   
   reportResults(results, []);
