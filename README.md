@@ -14,12 +14,12 @@
 Most developers ship websites with broken or incomplete SEO — missing meta tags, bad titles, duplicate descriptions — and only notice after publishing.  
 **SEO‑LINTER** is a CLI tool that audits static HTML files locally and warns you about SEO issues before your site goes live.
 
-### ✨ New in v0.1.8
-- **🏆 SEO Scoring**: Get a grade from 0-100 for every page.
-- **📏 Quality Checks**: Validates Title & Description lengths (not too short, not too long).
-- **🖼️ Image Accessibility**: Checks for missing `alt` text on images.
-- **🏷️ New Rules**: Now checks for `meta keywords` and `meta author`.
-- **📊 Unified Report**: See all your passed rules and captured metadata in one beautiful view.
+###  New in v0.1.8
+- **SEO Scoring**: Get a grade from 0-100 for every page.
+- **Quality Checks**: Validates Title & Description lengths (not too short, not too long).
+- **Image Accessibility**: Checks for missing `alt` text on images.
+- **New Rules**: Now checks for `meta keywords` and `meta author`.
+- **Unified Report**: See all your passed rules and captured metadata in one beautiful view.
 
 ---
 
