@@ -1,4 +1,4 @@
-# SEO Lint CLI 🚀
+# SEO Lint CLI 
 
 [![npm version](https://img.shields.io/npm/v/seo-lint-cli.svg)](https://www.npmjs.com/package/seo-lint-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -71,7 +71,7 @@ npx seo-lint-cli ./dist
     ✓ Canonical link present
     ...
 ```
- screenshot:![alt text](image-1.png)
+
 ---
 
 ### Case 2: Check a single live URL
@@ -82,7 +82,7 @@ If your site is already deployed and you want to test one page:
 npx seo-lint-cli --url https://example.com
 ```
 *This checks SEO issues for one page only.*
-   screenshot:![alt text](image.png)
+
 ---
 
 ### Case 3: Check multiple URLs at once (bulk scan)
@@ -123,44 +123,3 @@ npx seo-lint-cli --urls urls.txt
 
 ---
 
-## 🛠️ Development & Contributing
-
-Want to help improve SEO-LINT? We love contributions!
-
-### How to Setup locally
-1. **Fork the repo** to your GitHub account.
-2. **Clone your fork**:
-   ```bash
-   git clone https://github.com/Rohan-2601/SEO-LINTER.git
-   cd seo-lint-cli
-   ```
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-### How to Run Locally
-Test your changes without installing globally:
-```bash
-# Test on a URL
-node bin/cli.js --url https://example.com
-
-# Test on a local folder
-node bin/cli.js ./dist
-```
-
-### How to Raise a PR
-1. Create a new branch: `git checkout -b feature/my-new-feature`
-2. Make your changes and commit.
-3. Push to your fork and **Open a Pull Request**.
-4. **Screenshots**: Yes! Please attach screenshots or videos of your changes in the PR description so we can see the effect.
-
-### Feedback
-- Found a bug? → [Open an issue](https://github.com/Rohan-2601/SEO-LINTER/issues)   
-- Have an idea? → Start a discussion
-- **PRs are welcome!**
-
-**If this helped you, consider starring the repo ⭐**
-
-### License
-MIT
